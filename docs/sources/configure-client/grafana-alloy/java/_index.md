@@ -104,10 +104,10 @@ Ensure that you have appropriately configured the `GC_URL`, `GC_USER`, and `GC_P
 pyroscope.write "endpoint" {
     endpoint {
         basic_auth {
-            password = env("GC_PASSWORD")
-            username = env("GC_USER")
+            password = sys.env("GC_PASSWORD")
+            username = sys.env("GC_USER")
         }
-        url = env("GC_URL")
+        url = sys.env("GC_URL")
     }
 }
 ```
@@ -211,7 +211,7 @@ For a working example, refer to [Grafana Alloy Java profiling via auto-instrumen
 ```alloy
 discovery.kubernetes "local_pods" {
   selectors {
-    field = "spec.nodeName=" + env("HOSTNAME")
+    field = "spec.nodeName=" + sys.env("HOSTNAME")
     role = "pod"
   }
   role = "pod"
