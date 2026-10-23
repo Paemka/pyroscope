@@ -43,7 +43,7 @@ discovery.kubernetes "profile_pods" {
 }
 
 discovery.relabel "profile_pods" {
-  targets = concat(discovery.kubernetes.profile_pods.targets)
+  targets = array.concat(discovery.kubernetes.profile_pods.targets)
 
   // Other rule blocks ...
 
