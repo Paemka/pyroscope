@@ -71,7 +71,7 @@ pyroscope.write "endpoint" {
  }
  external_labels = {
   "env"      = "testing",
-  "instance" = env("HOSTNAME"),
+  "instance" = sys.env("HOSTNAME"),
  }
 }
 ```
