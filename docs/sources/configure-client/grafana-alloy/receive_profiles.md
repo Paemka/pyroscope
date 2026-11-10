@@ -92,8 +92,8 @@ pyroscope.write "production" {
     endpoint {
         url = "http://pyroscope:4040"
         basic_auth {
-            username = env("PYROSCOPE_USERNAME")
-            password = env("PYROSCOPE_PASSWORD")
+            username = sys.env("PYROSCOPE_USERNAME")
+            password = sys.env("PYROSCOPE_PASSWORD")
         }
     }
 }
@@ -117,7 +117,7 @@ pyroscope.write "backend" {
     external_labels = {
         "env"      = "production",
         "region"   = "us-west-1",
-        "instance" = env("HOSTNAME"),
+        "instance" = sys.env("HOSTNAME"),
         "cluster"  = "main",
     }
 }
