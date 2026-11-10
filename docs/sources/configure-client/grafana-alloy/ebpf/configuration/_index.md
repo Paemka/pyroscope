@@ -54,10 +54,10 @@ When sending to Grafana Cloud Profiles, you can use the following `pyroscope.wri
 pyroscope.write "endpoint" {
     endpoint {
         basic_auth {
-            password = env("GC_PASSWORD")
-            username = env("GC_USER")
+            password = sys.env("GC_PASSWORD")
+            username = sys.env("GC_USER")
         }
-        url = env("GC_URL")
+        url = sys.env("GC_URL")
     }
 }
 ```
